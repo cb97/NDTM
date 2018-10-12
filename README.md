@@ -10,6 +10,7 @@ Gli stati sono entrambi numeri interi positivi. I caratteri sono stati precedent
 
 A questa sezione segue la riga "Acc" e l'elenco di stati di accettazione, uno per riga.
 Segue la riga "Max", e il numero di mosse massimo che la macchina deve simulare. Esso può essere al massimo un long.
+
 Segue la riga "Run" e l'elenco delle stringhe da analizzare, una per riga. Per ognuna di esse sarà stampato, uno per riga, un carattere che ne indica l'esito. Sarà 1 se la stringa viene accettata, 0 se viene rifiutata, U se non viene rifiutata entro le mosse massime.
 
 

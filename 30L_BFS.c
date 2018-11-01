@@ -84,15 +84,15 @@ int main ()
 void trInsert2(int q, int p, char l, char s, char tes)
 {
 	tr * temp = NULL;
-	temp = malloc(sizeof(tr));																	//crea un'altra cella
+	temp = malloc(sizeof(tr));																//crea un'altra cella
 	temp->p = p;																				//copia i dati
 	temp->s = s;
 	temp->t = tes;
-	if(l <= '9')																				//se il carattere da leggere Ë un numero
+	if(l <= '9')																				//se il carattere da leggere √® un numero
 		l-=OFFSET3;																				//inseriscilo tra 53 e 62
-	else if(l<= 'Z')																			//se Ë una lettera maiuscola
+	else if(l<= 'Z')																			//se √® una lettera maiuscola
 		l-=OFFSET1;																				//tra 0 e 25
-		else if(l == '_')																		//se Ë '_'
+		else if(l == '_')																		//se √® '_'
 			l = 26;																				//in 26
 			else																				//altrimenti (lettera minuscola)
 				l-= OFFSET2;																	//tra 27 e 52
@@ -105,13 +105,13 @@ void trInsert2(int q, int p, char l, char s, char tes)
 tr * lookUp(int s, char c)
 {
 	tr * t;
-	if(s >= length)																				//se lo stato Ë un pozzo fuori dalla tabella
+	if(s >= length)																				//se lo stato √® un pozzo fuori dalla tabella
 		return NULL;																			//nessuna transizione
-	if(c <= '9')																				//se Ë un numero
+	if(c <= '9')																				//se √® un numero
 		c-=OFFSET3;																				//cerca tra 53 e 62
-	else if(c<= 'Z')																			//se Ë una lettera maiuscola
+	else if(c<= 'Z')																			//se √® una lettera maiuscola
 		c-=OFFSET1;																				//tra 0 e 25
-		else if(c == '_')																		//se Ë '_'
+		else if(c == '_')																		//se √® '_'
 			c = 26;																				//26
 			else																				//altrimenti (lettera minuscola)
 				c-= OFFSET2;																	//tra 27 e 52
@@ -141,12 +141,12 @@ int trScan()
 	char l, s, t;
 	scanf("%s\n", c);																			//leggo "tr"
 	scanf("%s ", c);																			//acquisisco la prima stringa della riga seguente
-	while(c[0]<='9')																			//finchË il primo carattere di una riga Ë un
+	while(c[0]<='9')																			//finch√® il primo carattere di una riga √® un
 	{																							//numero, le transizioni proseguono
 		q = atoi(c);																			//converto la stringa in un intero
-		if(q > max)																				//se Ë superiore al massimo stato attuale
+		if(q > max)																				//se √® superiore al massimo stato attuale
 			max = q;																			//diventa il nuovo massimo
-		while(q >= length)																		//finchË q non rientra in tabella
+		while(q >= length)																		//finch√® q non rientra in tabella
 			length	= extend(length);															//allarga la tabella
 		scanf("%c %c %c %d", &l, &s, &t, &p);													//acquisisci il resto dei dati di transizione
 		trInsert2(q, p, l, s, t);																//inserisci in tabella
@@ -161,12 +161,12 @@ int accScan(int max)
 {
 	char c [11];																				//lunghezza del massimo int
 	int i, h;		
-	//"acc" Ë gi‡ stato letto																			
+	//"acc" √® gi√† stato letto																			
 	scanf("%s",c);																				//leggo la stringa della riga seguente
-	while(c[0]<='9')																			//finchË il primo carattere di una riga Ë un numero
+	while(c[0]<='9')																			//finch√® il primo carattere di una riga √® un numero
 	{	
 		i = atoi(c);																			//converti la stringa in numero
-		if(i > max)																				//se Ë superiore allo stato massimo
+		if(i > max)																				//se √® superiore allo stato massimo
 			max = i;																			//diventa lo stato massimo
 		while(i >= length)																		//se lo stato supera la dimensione della tabella
 		{
@@ -213,12 +213,12 @@ char * scanString(int * len)
 	dim = MINDIM;
 	if(fgets(start, MINDIM, stdin) != NULL);													//leggi la stringa
 	{
-		while(!done)																			//finchË non finisci
+		while(!done)																			//finch√® non finisci
 		{
 			for(	; i < dim && !done ; i++)													//controlla i nuovi caratteri
 				if(start[i] == '\n' || (i != dim-1 && start[i] =='\0'))							//se trovi un \n, o un \0 non in ultima posizione
 				{
-					if(i >= 1 && start[i-1] == '\r')											//se prima c'Ë un \r
+					if(i >= 1 && start[i-1] == '\r')											//se prima c'√® un \r
 						start[i-1] = '_';														//puliscilo
 					start[i] = '_';																//pulisci i caratteri
 					done = 1;																	//hai finito
@@ -258,7 +258,7 @@ void store (coda * t)
 void deleteAll(coda * h)
 {	
 	coda * temp;
-	while(h != NULL)																			//finchË esistono rami di computazione
+	while(h != NULL)																			//finch√® esistono rami di computazione
 	{
 		free(h->nastro);																		//libera il suo nastro
 		temp = h->next;																			//segna il successivo ramo
@@ -273,7 +273,7 @@ coda * pop (coda * h, coda * t)
 {
 	coda * temp, * temp2;
 	free(t->nastro);																			//libera il nastro corrente
-	if(h == t)																					//se l'elemento da cancellare Ë la testa di lista
+	if(h == t)																					//se l'elemento da cancellare √® la testa di lista
 	{
 		h = t->next;																			//la testa diventa il successivo
 		if(h != NULL)																			//se la testa esiste
@@ -292,7 +292,7 @@ coda * pop (coda * h, coda * t)
 
 void mossa(coda * c, tr * t)
 {
-	char * nastro = c->nastro;																	//copia i dati di transizione in un contesto locale (spreca memoria ma mi viene pi˘ comodo, e tanto questa memoria dura poco)
+	char * nastro = c->nastro;																	//copia i dati di transizione in un contesto locale (spreca memoria ma mi viene pi√π comodo, e tanto questa memoria dura poco)
 	int i = c->i, k;
 	int stato = c->stato;
 	int dim = c->dim;
@@ -343,9 +343,9 @@ void calcola(char * nastro, int dim)
 	head->prev = NULL;
 	do																							//esegui
 	{
-		while (mosse == max && head != NULL)													//quando raggiungi il limite di mosse, finchË hai rami
+		while (mosse == max && head != NULL)													//quando raggiungi il limite di mosse, finch√® hai rami
 		{
-			if(head->stato < length && ht[head->stato].acc == true)								//se il ramo Ë su uno stato di accettazione
+			if(head->stato < length && ht[head->stato].acc == true)								//se il ramo √® su uno stato di accettazione
 			{
 				deleteAll(head);																//cancella tutto
 				printf("1\n");																	//stampa 1
@@ -361,7 +361,7 @@ void calcola(char * nastro, int dim)
 			return ;																			//termina
 		}
 		curr = head;																			//imposta il ramo corrente alla testa
-		while(curr != NULL)																		//finchË ci sono rami		
+		while(curr != NULL)																		//finch√® ci sono rami		
 		{
 			temp = curr->next;																	//segna il ramo successivo
 			stato = curr->stato;																//segna in locale lo stato e la posizione
@@ -376,7 +376,7 @@ void calcola(char * nastro, int dim)
 				head = pop(head, curr);															//cancella il ramo
 			else																				//altrimenti
 			{
-				while(tr->next != NULL)															//finchË c'Ë almeno un'altra transizione possibile
+				while(tr->next != NULL)															//finch√® c'√® almeno un'altra transizione possibile
 				{
 					store(curr);																//crea un nuovo ramo
 					mossa(curr, tr);															//esegui una mossa sul ramo corrente
@@ -390,7 +390,7 @@ void calcola(char * nastro, int dim)
 		//a questo punto ho fatto una mossa su tutti i rami
 		mosse++;																				//aumenta le mosse			
 	}
-	while(head != NULL);																		//finchË hai rami																					//altrimenti stampa 0
+	while(head != NULL);																		//finch√® hai rami																					//altrimenti stampa 0
 	printf("0\n");																				//stampa 0
 	if(head != NULL)																			//sono abbastanza sicuro che sia inutile ma lo metto lo stesso
 		deleteAll(head);
